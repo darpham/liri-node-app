@@ -1,0 +1,40 @@
+name: Summer Sonic Osaka [08.16 - 08.18]
+location: Osaka, Japan
+date: 08/16/2019
+
+name: Summer Sonic Tokyo [08.16 - 08.18]
+location: Tokyo, Japan
+date: 08/17/2019
+
+name: Singapore Grand Prix
+location: Singapore, Singapore
+date: 09/22/2019
+
+name: Ohana Festival [09.27 - 09.29]
+location: Dana Point, United States
+date: 09/29/2019
+
+name: Rock in Rio [09.27 - 10.06]
+location: Rio De Janeiro, Brazil
+date: 10/03/2019
+Upcoming Events for: rhcp
+
+name: Summer Sonic Osaka [08.16 - 08.18]
+location: Osaka, Japan
+date: 08/16/2019
+
+name: Summer Sonic Tokyo [08.16 - 08.18]
+location: Tokyo, Japan
+date: 08/17/2019
+
+name: Singapore Grand Prix
+location: Singapore, Singapore
+date: 09/22/2019
+
+name: Ohana Festival [09.27 - 09.29]
+location: Dana Point, United States
+date: 09/29/2019
+
+name: Rock in Rio [09.27 - 10.06]
+location: Rio De Janeiro, Brazil
+date: 10/03/2019
