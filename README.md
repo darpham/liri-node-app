@@ -14,7 +14,7 @@ Additionally, I split this program into 5 modules to better understand modular J
 
 # Functions
 
-LIRI has 4 functions
+### LIRI has 4 functions
 * concert-this
 * spotify-this-song
 * movie-this
@@ -22,18 +22,18 @@ LIRI has 4 functions
 
 Once the user selects either of the first 3 functions, it will request an input. This input will be the search string used against the selected function.
 
-### concert-this
+#### concert-this
 Use: Grabs list of upcoming music shows for artist
 API: http://www.artists.bandsintown.com/bandsintown-api
 
-### spotify-this-song
+#### spotify-this-song
 Use: List up to 5 songs that match the user's search
 API: https://developer.spotify.com/documentation/web-api/
 Module: https://www.npmjs.com/package/node-spotify-api
 
-### movie-this
+#### movie-this
 Use: Grabs movie details for user's search
 API: http://www.omdbapi.com/
 
-### do-what-it-says
+#### do-what-it-says
 Use: Parses random.txt to find the function and input and execute accordingly
