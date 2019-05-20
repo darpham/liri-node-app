@@ -12,6 +12,8 @@ Modules utilized:
 
 Additionally, I split this program into 5 modules to better understand modular JS and for seperation of concerns
 
+To execute this program you will need node installed, then run `node liri.js`
+
 # Functions
 
 ### LIRI has 4 functions
