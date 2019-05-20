@@ -5,7 +5,6 @@ var fs = require('fs');
 var logData = {
     log: function(data) {
       data.splice(0, 0, '\n *** New Function request*** \n');
-      console.log(data)
       fs.open('log.txt', 'a', (err, fd) => {
         if (err) throw err;
         fs.appendFile(fd, data.join('\n'), 'utf8', (err) => {
