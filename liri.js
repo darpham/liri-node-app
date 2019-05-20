@@ -1,11 +1,15 @@
+// importing required external modules
 require("dotenv").config();
 var inquirer = require('inquirer');
 var fs = require('fs');
 
+// importing api module
 var apiCalls = require('./api.js');
 
+// LIRI main application module
 var liriApplication = {
 
+    // Main function to inquir user input
     askWhichFunction: function() {
         inquirer
             .prompt([ 
@@ -19,22 +23,28 @@ var liriApplication = {
             .then(function(inquirerResponse) {
                 selectedFunction = inquirerResponse.liriFunctions.split('-');
 
+                // Forwards user's selection into different method to identify the users selected function
                 liriApplication.identifyFunction(selectedFunction);
             });
     },
 
+    // Identify the function by parsing and calling the method
     identifyFunction: function(selectedFunction) {
-        // console.log(liriFunction)
+
         if (selectedFunction[0] == 'do') {
+            // calls do method
             this.do();
         } else {
+            // calls the correct method via the parsed function
             this.askWhatSearch(selectedFunction[0])
         };
         
     },
 
+    // Function to create and prompt the user to input the search string
     askWhatSearch: function(selectedFunction) {
         
+        // Constructor to create prompt that will be inserted into inquirer function
         var Prompt = function(question, message, defaultStr) {
             this.type = 'input';
             this.name = 'searchString';
@@ -59,6 +69,7 @@ var liriApplication = {
             };
         };
         
+        // Creates new prompt object via constructor above
         switch (selectedFunction) {
             case 'concert':
                 var promptObj = new Prompt(selectedFunction, 'What artist(s) would you like to see upcoming concerts for?')
@@ -71,28 +82,32 @@ var liriApplication = {
                 break;
         };
 
+        // inquirer functiont to get user search string input
         inquirer
         .prompt([ 
         promptObj,
         ])
         .then(function(inquirerResponse) {
-            searchString = inquirerResponse.searchString
-            liriApplication[selectedFunction](searchString);
+
+            // Calls correct liri method and passes in the search string
+            liriApplication[selectedFunction](inquirerResponse.searchString);
         });
     },
 
+    // liri methods that calls the api module with the search string
     concert: function(searchString) {
-        apiCalls.apiConcert(searchString);
+        apiCalls.concert(searchString);
     },
 
     spotify: function(searchString) {
-        apiCalls.apiSpotify(searchString);
+        apiCalls.spotify(searchString);
     },
 
     movie: function(searchString) {
-        apiCalls.apiMovie(searchString);
+        apiCalls.movie(searchString);
     },
 
+    // Do function that parses random.txt
     do: function() {
         console.log("Running 'do' function, pulling parameters from random.txt");
         fs.readFile('./random.txt', 'utf8', function(err, data) {
@@ -101,10 +116,12 @@ var liriApplication = {
             var selectedFunction = randomFunction[0].split('-');
             var searchString = randomFunction[1];
 
+            // calls liri method with search string parsed from random.txt
             liriApplication[selectedFunction[0]](searchString);
         });
     },
 
+    // This code not being used atm, future enhancement
     runAgain: function() {
         inquirer
         .prompt([ 
@@ -124,4 +141,5 @@ var liriApplication = {
     },
 };
 
+// Calls main method that initiates this application
 liriApplication.askWhichFunction();

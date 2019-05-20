@@ -1,9 +1,12 @@
+// Import external module
 var moment = require('moment');
-var fs = require('fs');
 
+// Import internal module to display the data once parsed in this module
 var displayInfo = require('./display.js');
 
 var parseData = {
+
+    // function to parse data from concert api
     concert: function(response, search) {
         var eventsData = response.data;
         var eventsArr = [];
@@ -20,8 +23,12 @@ var parseData = {
             var date = moment(event.datetime).format('L');
             eventsArr.push(new Event(name, location, date));
         });
+
+        // sends data to displayInfo module
         displayInfo.concert(eventsArr, search)
     },
+
+    // function to parse data from spotify api
     spotify: function(response, search) {
         var tracks = response.tracks.items;
         var songArr = [];
@@ -51,8 +58,11 @@ var parseData = {
 
         });
 
+        // sends data to displayInfo module
         displayInfo.spotify(songArr, search)
     },
+
+    // function to parse data from omdb api
     movie: function(response, search) {
         var movieData = response.data
         var movie = {
@@ -66,6 +76,7 @@ var parseData = {
             name: movieData.Actors
         };
 
+        // sends data to displayInfo module
         displayInfo.movie(movie, search);
     },
 };

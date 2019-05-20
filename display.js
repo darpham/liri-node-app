@@ -1,7 +1,8 @@
+// imports internal module that will send data to logData module
 var logData = require('./log.js')
 
 var displayInfo = {
-
+    // parses data and displays the data in a nice format 
     concert: function(data, search){
         var result = [];
         this.formatDisplay()
@@ -16,6 +17,8 @@ var displayInfo = {
         });
         console.log(result.join('\n'))
         console.groupEnd()
+
+        // Sends data to logData 
         logData.log(result);
     },
 
@@ -36,6 +39,8 @@ var displayInfo = {
         });
         console.log(result.join('\n'))
         console.groupEnd()
+
+        // Sends data to logData 
         logData.log(result);
     },
 
@@ -54,12 +59,14 @@ var displayInfo = {
         };
         console.log(result.join('\n'))
         console.groupEnd()
+
+        // Sends data to logData 
+        logData.log(result);
     },
 
     formatDisplay: function() {
         console.clear()
         console.group()
-        logData.log(result);
     }
 };
 
