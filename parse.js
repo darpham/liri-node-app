@@ -32,7 +32,7 @@ var parseData = {
     spotify: function(response, search) {
         var tracks = response.tracks.items;
         var songArr = [];
-        // console.log(tracks);
+        var dedupArr = [];
         var Song = function(artists, songName, preview, album) {
             this.artists = artists;
             this.songName = songName;
@@ -54,8 +54,11 @@ var parseData = {
             var preview = track.preview_url
             var album = track.album.name
 
-            songArr.push(new Song(artistArr, songName, preview, album));
-
+            if (dedupArr.includes(preview)){
+            } else {
+                dedupArr.push(preview);
+                songArr.push(new Song(artistArr, songName, preview, album));
+            }
         });
 
         // sends data to displayInfo module

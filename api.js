@@ -31,7 +31,7 @@ var apiCalls = {
             console.warn("No input provided, using default");
         }
         console.log("**calling spotify API** search: " + search);
-        spotify.search({ type: 'track', query: search, limit: 3}, function(err, data) {
+        spotify.search({ type: 'track', query: search, limit: 5}, function(err, data) {
             if (err) {
               return console.log('Error occurred: ' + err);
             };
