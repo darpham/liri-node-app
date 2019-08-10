@@ -12,6 +12,8 @@ Modules utilized:
 
 Additionally, I split this program into 5 modules to better understand modular JS and for seperation of concerns
 
+To execute this program you will need node installed, then run `node liri.js`
+
 # Functions
 
 ### LIRI has 4 functions
@@ -20,20 +22,28 @@ Additionally, I split this program into 5 modules to better understand modular J
 * movie-this
 * do-what-it-says
 
+![Liri Functions](public/liri_options.png)
+
 Once the user selects either of the first 3 functions, it will request an input. This input will be the search string used against the selected function.
 
 #### concert-this
 Use: Grabs list of upcoming music shows for artist
 API: http://www.artists.bandsintown.com/bandsintown-api
 
+![Find Concert](public/liri_concert_this.png)
+
 #### spotify-this-song
 Use: List up to 5 songs that match the user's search
 API: https://developer.spotify.com/documentation/web-api/
 Module: https://www.npmjs.com/package/node-spotify-api
 
+![Find Song via Spotify](public/liri_spotify_this_song.png)
+
 #### movie-this
 Use: Grabs movie details for user's search
 API: http://www.omdbapi.com/
+
+![Find Movie](public/liri_movie_this.png)
 
 #### do-what-it-says
 Use: Parses random.txt to find the function and input and execute accordingly
